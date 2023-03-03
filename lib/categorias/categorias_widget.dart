@@ -209,81 +209,113 @@ class _CategoriasWidgetState extends State<CategoriasWidget> {
                               clipBehavior: Clip.antiAliasWithSaveLayer,
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              child: InkWell(
-                                onTap: () async {
-                                  context.pushNamed(
-                                    'Productos',
-                                    queryParams: {
-                                      'categoria': serializeParam(
-                                        gridViewCategoriasRecord,
-                                        ParamType.Document,
-                                      ),
-                                    }.withoutNulls,
-                                    extra: <String, dynamic>{
-                                      'categoria': gridViewCategoriasRecord,
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Container(
+                                    width: 80.0,
+                                    height: 60.0,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                    ),
+                                    child: Image.network(
+                                      gridViewCategoriasRecord.imagen!,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  InkWell(
+                                    onTap: () async {
+                                      context.pushNamed(
+                                        'Productos',
+                                        queryParams: {
+                                          'categoria': serializeParam(
+                                            gridViewCategoriasRecord,
+                                            ParamType.Document,
+                                          ),
+                                        }.withoutNulls,
+                                        extra: <String, dynamic>{
+                                          'categoria': gridViewCategoriasRecord,
+                                        },
+                                      );
                                     },
-                                  );
-                                },
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Row(
+                                    child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
-                                        Text(
-                                          gridViewCategoriasRecord.nombre!,
-                                          textAlign: TextAlign.center,
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyText1,
+                                        Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceAround,
+                                          children: [
+                                            Text(
+                                              gridViewCategoriasRecord.nombre!,
+                                              textAlign: TextAlign.center,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .subtitle1,
+                                            ),
+                                          ],
+                                        ),
+                                        Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            FlutterFlowIconButton(
+                                              borderColor: Colors.transparent,
+                                              borderRadius: 30.0,
+                                              borderWidth: 1.0,
+                                              buttonSize: 60.0,
+                                              icon: FaIcon(
+                                                FontAwesomeIcons.edit,
+                                                color: Color(0xFF00A200),
+                                                size: 30.0,
+                                              ),
+                                              onPressed: () async {
+                                                await showModalBottomSheet(
+                                                  isScrollControlled: true,
+                                                  backgroundColor:
+                                                      Colors.transparent,
+                                                  enableDrag: false,
+                                                  context: context,
+                                                  builder: (context) {
+                                                    return Padding(
+                                                      padding:
+                                                          MediaQuery.of(context)
+                                                              .viewInsets,
+                                                      child:
+                                                          BsModificaCategoriaWidget(
+                                                        categoria:
+                                                            gridViewCategoriasRecord,
+                                                      ),
+                                                    );
+                                                  },
+                                                ).then(
+                                                    (value) => setState(() {}));
+                                              },
+                                            ),
+                                            FlutterFlowIconButton(
+                                              borderColor: Colors.transparent,
+                                              borderRadius: 30.0,
+                                              borderWidth: 1.0,
+                                              buttonSize: 60.0,
+                                              icon: FaIcon(
+                                                FontAwesomeIcons.trashAlt,
+                                                color: Color(0xFFA42C2C),
+                                                size: 30.0,
+                                              ),
+                                              onPressed: () async {
+                                                await gridViewCategoriasRecord
+                                                    .reference
+                                                    .delete();
+                                              },
+                                            ),
+                                          ],
                                         ),
                                       ],
                                     ),
-                                    FlutterFlowIconButton(
-                                      borderColor: Colors.transparent,
-                                      borderRadius: 30.0,
-                                      borderWidth: 1.0,
-                                      buttonSize: 60.0,
-                                      icon: FaIcon(
-                                        FontAwesomeIcons.trashAlt,
-                                        color: Color(0xFFA42C2C),
-                                        size: 30.0,
-                                      ),
-                                      onPressed: () async {
-                                        await gridViewCategoriasRecord.reference
-                                            .delete();
-                                      },
-                                    ),
-                                    FlutterFlowIconButton(
-                                      borderColor: Colors.transparent,
-                                      borderRadius: 30.0,
-                                      borderWidth: 1.0,
-                                      buttonSize: 60.0,
-                                      icon: FaIcon(
-                                        FontAwesomeIcons.edit,
-                                        color: Color(0xFF00A200),
-                                        size: 30.0,
-                                      ),
-                                      onPressed: () async {
-                                        await showModalBottomSheet(
-                                          isScrollControlled: true,
-                                          backgroundColor: Colors.transparent,
-                                          enableDrag: false,
-                                          context: context,
-                                          builder: (context) {
-                                            return Padding(
-                                              padding: MediaQuery.of(context)
-                                                  .viewInsets,
-                                              child: BsModificaCategoriaWidget(
-                                                categoria:
-                                                    gridViewCategoriasRecord,
-                                              ),
-                                            );
-                                          },
-                                        ).then((value) => setState(() {}));
-                                      },
-                                    ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ),
                           ),

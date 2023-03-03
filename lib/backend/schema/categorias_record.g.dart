@@ -38,6 +38,13 @@ class _$CategoriasRecordSerializer
                   DocumentReference, const [const FullType.nullable(Object)])
             ])));
     }
+    value = object.imagen;
+    if (value != null) {
+      result
+        ..add('imagen')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -72,6 +79,10 @@ class _$CategoriasRecordSerializer
                     DocumentReference, const [const FullType.nullable(Object)])
               ]))! as BuiltList<Object?>);
           break;
+        case 'imagen':
+          result.imagen = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -91,13 +102,16 @@ class _$CategoriasRecord extends CategoriasRecord {
   @override
   final BuiltList<DocumentReference<Object?>>? productos;
   @override
+  final String? imagen;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$CategoriasRecord(
           [void Function(CategoriasRecordBuilder)? updates]) =>
       (new CategoriasRecordBuilder()..update(updates))._build();
 
-  _$CategoriasRecord._({this.nombre, this.productos, this.ffRef}) : super._();
+  _$CategoriasRecord._({this.nombre, this.productos, this.imagen, this.ffRef})
+      : super._();
 
   @override
   CategoriasRecord rebuild(void Function(CategoriasRecordBuilder) updates) =>
@@ -113,13 +127,15 @@ class _$CategoriasRecord extends CategoriasRecord {
     return other is CategoriasRecord &&
         nombre == other.nombre &&
         productos == other.productos &&
+        imagen == other.imagen &&
         ffRef == other.ffRef;
   }
 
   @override
   int get hashCode {
-    return $jf(
-        $jc($jc($jc(0, nombre.hashCode), productos.hashCode), ffRef.hashCode));
+    return $jf($jc(
+        $jc($jc($jc(0, nombre.hashCode), productos.hashCode), imagen.hashCode),
+        ffRef.hashCode));
   }
 
   @override
@@ -127,6 +143,7 @@ class _$CategoriasRecord extends CategoriasRecord {
     return (newBuiltValueToStringHelper(r'CategoriasRecord')
           ..add('nombre', nombre)
           ..add('productos', productos)
+          ..add('imagen', imagen)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -146,6 +163,10 @@ class CategoriasRecordBuilder
   set productos(ListBuilder<DocumentReference<Object?>>? productos) =>
       _$this._productos = productos;
 
+  String? _imagen;
+  String? get imagen => _$this._imagen;
+  set imagen(String? imagen) => _$this._imagen = imagen;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -159,6 +180,7 @@ class CategoriasRecordBuilder
     if ($v != null) {
       _nombre = $v.nombre;
       _productos = $v.productos?.toBuilder();
+      _imagen = $v.imagen;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -184,7 +206,10 @@ class CategoriasRecordBuilder
     try {
       _$result = _$v ??
           new _$CategoriasRecord._(
-              nombre: nombre, productos: _productos?.build(), ffRef: ffRef);
+              nombre: nombre,
+              productos: _productos?.build(),
+              imagen: imagen,
+              ffRef: ffRef);
     } catch (_) {
       late String _$failedField;
       try {

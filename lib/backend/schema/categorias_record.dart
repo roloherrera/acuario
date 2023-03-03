@@ -15,13 +15,16 @@ abstract class CategoriasRecord
 
   BuiltList<DocumentReference>? get productos;
 
+  String? get imagen;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
 
   static void _initializeBuilder(CategoriasRecordBuilder builder) => builder
     ..nombre = ''
-    ..productos = ListBuilder();
+    ..productos = ListBuilder()
+    ..imagen = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('Categorias');
@@ -46,13 +49,15 @@ abstract class CategoriasRecord
 
 Map<String, dynamic> createCategoriasRecordData({
   String? nombre,
+  String? imagen,
 }) {
   final firestoreData = serializers.toFirestore(
     CategoriasRecord.serializer,
     CategoriasRecord(
       (c) => c
         ..nombre = nombre
-        ..productos = null,
+        ..productos = null
+        ..imagen = imagen,
     ),
   );
 
