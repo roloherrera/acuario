@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>724886463604-nbflcutijqgvnr3cfg87a2a2hlmb10bk.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.724886463604-nbflcutijqgvnr3cfg87a2a2hlmb10bk</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>724886463604-3fc33pb558ibecoefj50eu6497vhtnms.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCuAuAowjobUoqDBIca3oaH9B1nDuIuT2Q</string>
+	<key>GCM_SENDER_ID</key>
+	<string>724886463604</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.rherrera80646.acuario</string>
+	<key>PROJECT_ID</key>
+	<string>acuario-2c1e4</string>
+	<key>STORAGE_BUCKET</key>
+	<string>acuario-2c1e4.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:724886463604:ios:fd384121cd2a60d04f5d21</string>
+</dict>
+</plist>

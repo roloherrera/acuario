@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "724886463604",
+    "project_id": "acuario-2c1e4",
+    "storage_bucket": "acuario-2c1e4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:724886463604:android:36b1f4f29d0492bf4f5d21",
+        "android_client_info": {
+          "package_name": "com.rherrera80646.acuario"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "724886463604-3fc33pb558ibecoefj50eu6497vhtnms.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rherrera80646.acuario",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "724886463604-qaser5r77kdiona7eo94s88mmlu2v9ro.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA49v0PhO8j5otIyWW50O8oEBV9rTGGhpU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "724886463604-qaser5r77kdiona7eo94s88mmlu2v9ro.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "724886463604-nbflcutijqgvnr3cfg87a2a2hlmb10bk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.rherrera80646.acuario"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
